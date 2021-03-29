@@ -34,4 +34,13 @@ export default {
   section {
     width: 100%;
   }
+
+  .finish{
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .give-ur-vote{
+    font-size: 24px;
+  }
 </style>
