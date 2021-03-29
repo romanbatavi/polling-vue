@@ -2,7 +2,9 @@
   <div class="container">
     <section class="vote">
       <h3 class="give-ur-vote">Silahkan Berikan Penilaian</h3>
-      <div class="emoticons">//Akan Menjadi Emoticon</div>
+      <div class="emoticons">
+        <Vote />
+        </div>
     </section>
 
     <section class="finish">
@@ -13,11 +15,11 @@
 
 <script>
 // @ is an alias to /src
-// import vote from "@/components/vote.vue";
+import Vote from "@/components/Vote.vue";
 
 export default {
   name: "Home",
-  components: {},
+  components: { Vote },
 };
 </script>
 
