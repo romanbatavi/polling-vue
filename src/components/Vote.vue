@@ -13,6 +13,7 @@
 <script>
 // @ is an alias to /src
 // import Vote from "@/components/Vote.vue";
+import moment from "moment";
 
 export default {
   name: "Home",
@@ -24,7 +25,10 @@ export default {
   },
   methods:{
     vote(e){
-      var voted = e.target.value
+      var voted = e.target.value;
+      
+      var waktu = moment().format('YYYY-MM-DD h:mm:ss a');
+      console.log(waktu);
 
       localStorage.setItem('vote',voted);
     }
