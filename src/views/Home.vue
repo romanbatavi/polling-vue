@@ -55,4 +55,11 @@ export default {
   .give-ur-vote{
     font-size: 24px;
   }
+
+  .fade-enter-active, .fade-leave-active{
+  transition: opacity 1.5s;
+  }
+  .fade-enter, .fade-leave-to{
+  opacity: 0;
+  }
 </style>
