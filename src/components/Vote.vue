@@ -23,14 +23,14 @@ export default {
   data: function(){
     return {
       emoticons: ['very-bad','bad','ok','good','excellent'],
-      isDisable: false,
-      emoticonClick: false
+      // isDisable: false,
+      emoticonClick: ''
     }
   },
   methods:{
     vote(e){
       var voted = e.target.value;
-      this.isDisable = true;
+      // this.isDisable = true;
       this.emoticonClick = voted;
       
       var keyStorage = moment().format('YYYYMMDDhmmss a');
@@ -43,6 +43,11 @@ export default {
       var jsonToString = JSON.stringify(data);
 
       localStorage.setItem(keyStorage,jsonToString);
+    }
+  },
+  computed:{
+    isDisable : function(){
+      return this.emoticonClick.length === 0 ? false : true;
     }
   }
 };
