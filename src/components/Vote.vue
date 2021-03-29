@@ -6,6 +6,7 @@
                     :value="emoticon"
                     @click="vote"
                     :disabled="isDisable"
+                    :class="{active: emoticon == emoticonClick}"
                     class="btn-emoticon">
     </button>
   </div>
@@ -18,17 +19,19 @@ import moment from "moment";
 
 export default {
   name: "Vote",
-  components: {  },
+  components: { },
   data: function(){
     return {
       emoticons: ['very-bad','bad','ok','good','excellent'],
-      isDisable: false
+      isDisable: false,
+      emoticonClick: false
     }
   },
   methods:{
     vote(e){
-      this.isDisable = true;
       var voted = e.target.value;
+      this.isDisable = true;
+      this.emoticonClick = voted;
       
       var keyStorage = moment().format('YYYYMMDDhmmss a');
       var create_at = moment().format('YYYY-MM-DD h:mm:ss a');
@@ -71,6 +74,7 @@ export default {
   #very-bad:hover{
     background-position: 0px -100px;
   }
+  #very-bad.active,
   #very-bad:active{
     background-position: 0px -200px;
   }
@@ -81,6 +85,7 @@ export default {
   #bad:hover{
     background-position: -101px -100px;
   }
+  #bad.active,
   #bad:active{
     background-position: -101px -200px;
   }
@@ -91,6 +96,7 @@ export default {
   #ok:hover{
     background-position: -202px -100px;
   }
+  #ok.active,
   #ok:active{
     background-position: -202px -200px;
   }
@@ -101,6 +107,7 @@ export default {
   #good:hover{
     background-position: -303px -100px;
   }
+  #good.active,
   #good:active{
     background-position: -303px -200px;
   }
@@ -111,6 +118,7 @@ export default {
   #excellent:hover{
     background-position: -404px -100px;
   }
+  #excellent.active,
   #excellent:active{
     background-position: -404px -200px;
   }
