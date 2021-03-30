@@ -31,13 +31,17 @@ export default {
       emoticonClick: ''
     }
   },
-  
   methods:{
     vote(e){
       var voted = e.target.value;
       // this.isDisable = true;
       this.emoticonClick = voted;
       
+      this.store(voted);
+      
+      this.voteProp();
+    },
+    store(voted){
       var keyStorage = moment().format('YYYYMMDDhmmss a');
       var create_at = moment().format('YYYY-MM-DD h:mm:ss a');
       var data = {
@@ -48,16 +52,13 @@ export default {
       var jsonToString = JSON.stringify(data);
 
       localStorage.setItem(keyStorage,jsonToString);
-      this.voteProp();
     }
   },
-  
   computed:{
     isDisable : function(){
       return this.emoticonClick.length === 0 ? false : true;
     }
   },
-  
   mounted(){
     this.$root.$on('emitProcess', () => {
       this.emoticonClick = '';
