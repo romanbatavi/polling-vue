@@ -31,6 +31,7 @@ export default {
       emoticonClick: ''
     }
   },
+  
   methods:{
     vote(e){
       var voted = e.target.value;
@@ -50,10 +51,17 @@ export default {
       this.voteProp();
     }
   },
+  
   computed:{
     isDisable : function(){
       return this.emoticonClick.length === 0 ? false : true;
     }
+  },
+  
+  mounted(){
+    this.$root.$on('emitProcess', () => {
+      this.emoticonClick = '';
+    });
   }
 };
 </script>

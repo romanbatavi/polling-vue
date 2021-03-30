@@ -3,7 +3,7 @@
     <section class="vote">
       <h3 class="give-ur-vote">Silahkan Berikan Penilaian</h3>
       <div class="emoticons">
-        <Vote :voteProp="vote" />
+        <Vote :voteProp="vote"/>
         </div>
     </section>
 
@@ -26,6 +26,7 @@ export default {
       show: false
     }
   },
+  
   components: { Vote },
   methods:{
     vote(){
@@ -33,6 +34,7 @@ export default {
     },
     afterEnter(){
       this.show = false;
+      this.$root.$emit('emitProcess','aaa')
     }
   }
 };
